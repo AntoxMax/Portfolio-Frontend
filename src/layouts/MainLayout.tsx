@@ -1,12 +1,11 @@
-import React from "react";
-import styles from "./mainLayout.module.scss";
+import s from "./mainLayout.module.scss";
 
 interface LayoutProps {
   children: React.ReactChild | React.ReactNode;
 }
 
 const MainLayout: React.FC<LayoutProps> = ({ children }) => {
-  return <div className={styles.wrapper}>{children}</div>;
+  return <div className={s.mainLayout}>{children}</div>;
 };
 
 export default MainLayout;
