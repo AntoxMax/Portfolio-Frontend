@@ -6,9 +6,9 @@ import { BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
-    <MainLayout>
+    <>
       <Main />
-    </MainLayout>
+    </>
   );
 }
 

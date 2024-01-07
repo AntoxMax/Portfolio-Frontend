@@ -1,0 +1,60 @@
+.projects {
+  margin-top: -40px;
+  position: relative;
+  z-index: 1;
+
+  &__menu {
+    display: flex;
+    justify-content: space-between;
+    width: 75%;
+    margin: 0 auto 80px;
+    padding: 20px 30px;
+
+    border-radius: 10px;
+    background: linear-gradient(270deg, #252525 0%, #272727 100%, #272727 100%);
+    box-shadow: 0px 0px 25px 15px rgba(0, 0, 0, 0.5);
+
+    .menu__item {
+      margin: 0 10px;
+
+      color: #fff;
+      font-family: Roboto Mono;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 500;
+
+      cursor: pointer;
+    }
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-column-gap: 45px;
+    grid-row-gap: 45px;
+  }
+  &__item {
+    display: grid;
+    grid-row-gap: 15px;
+    img {
+      box-shadow: 0px 0px 25px 10px rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+      max-width: 540px;
+      max-height: 280px;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+
+      margin-bottom: 15px;
+    }
+    .title {
+      color: #fff;
+      font-family: Roboto Mono;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+.contacts {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__socials {
+    .socials__item:not(:last-child) {
+      margin-bottom: 15px;
+    }
+
+    .socials__item {
+      display: flex;
+      align-items: center;
+
+      svg {
+        margin-right: 15px;
+      }
+    }
+  }
+
+  &__button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
