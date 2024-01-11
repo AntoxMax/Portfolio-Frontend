@@ -1,12 +1,24 @@
-.background {
-  position: absolute;
-  padding-top: -80px;
-}
+// .background {
+//   position: absolute;
+//   z-index: 0;
+//   top: 0;
+//   left: 0;
+//   width: 100vw;
+//   //   background: ;
+
+//   img {
+//     width: 100%;
+//     object-fit: cover;
+//     height: 100%;
+//   }
+// }
 
 .mainBlock {
   display: flex;
   border-radius: 10px;
   overflow: hidden;
+  position: relative;
+  z-index: 1;
 
   &__content {
     display: flex;
