@@ -1,8 +1,18 @@
+import { useEffect } from "react";
 import VerticalLayout from "../../layouts/VerticalLayout";
+import { fetchMainpageIngo } from "../../redux/MainPage/mainpageSlice";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { BlockTitle } from "../../ui/blockTitle/BlockTitle";
 import s from "./style.module.scss";
 
 export const SkillsBLock = () => {
+  const dispatch = useAppDispatch();
+  const skills = useAppSelector((state) => state.mainPage.mainPageIngo.skills);
+
+  useEffect(() => {
+    dispatch(fetchMainpageIngo());
+  }, []);
+
   return (
     <VerticalLayout>
       <BlockTitle>Навыки</BlockTitle>
