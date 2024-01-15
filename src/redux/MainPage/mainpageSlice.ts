@@ -18,8 +18,10 @@ export enum Statuses {
   Error = "ERROR",
 }
 
+export type skillsType = { name: string; value: string[] };
+
 interface MainPageState {
-  skills: [];
+  skills: skillsType[];
   textAboutMe: String;
   status: Statuses;
 }

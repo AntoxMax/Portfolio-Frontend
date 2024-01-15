@@ -4,10 +4,12 @@ import type { RootState } from "../store";
 
 import axios from "../../axios";
 
-export const fetchProjects = createAsyncThunk(
-  "posts/fetchProjects",
-  async () => {
-    const { data } = await axios.get("/projects");
+export const fetchProjectsCategory = createAsyncThunk(
+  "posts/fetchProjectsCategory",
+  async (category: string) => {
+    const { data } = await axios.get(
+      `/projects-category/?category=${category}`
+    );
     return data;
   }
 );
@@ -35,17 +37,17 @@ const projectSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(fetchProjects.pending, (state) => {
+    builder.addCase(fetchProjectsCategory.pending, (state) => {
       state.projects.status = Statuses.Loading;
     });
     builder.addCase(
-      fetchProjects.fulfilled,
+      fetchProjectsCategory.fulfilled,
       (state, action: PayloadAction<[]>) => {
         state.projects.items = action.payload;
         state.projects.status = Statuses.Success;
       }
     );
-    builder.addCase(fetchProjects.rejected, (state) => {
+    builder.addCase(fetchProjectsCategory.rejected, (state) => {
       state.projects.items = [];
       state.projects.status = Statuses.Error;
     });

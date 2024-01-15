@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { projectReducer } from "./Project/projectSlice";
 import { mainPageReducer } from "./MainPage/mainpageSlice";
+import { adminReducer } from "./Admin/adminSlice";
 
 export const store = configureStore({
   reducer: {
     projects: projectReducer,
     mainPage: mainPageReducer,
+    admin: adminReducer,
   },
 });
 

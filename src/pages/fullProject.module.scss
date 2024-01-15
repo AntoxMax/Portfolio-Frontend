@@ -1,0 +1,46 @@
+.projectPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  & > :not(:last-child) {
+    margin-bottom: 65px;
+  }
+
+  &__img {
+    width: 100%;
+    max-height: 70vh;
+    object-fit: cover;
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+
+    .link {
+      display: flex;
+      padding: 15px;
+      background-color: #fff;
+      border-radius: 10px;
+      color: #000;
+      margin-right: 15px;
+    }
+  }
+
+  &__skills {
+    width: 100%;
+  }
+
+  &__text {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 10px;
+    color: #000;
+
+    p {
+      margin: 0;
+      padding: 15px;
+    }
+  }
+}
