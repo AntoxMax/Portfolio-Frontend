@@ -13,13 +13,26 @@
 .accordion__header {
   position: relative;
   width: 100%;
-  padding: 20px 60px 20px 30px;
+  padding: 20px;
   background-color: #fff;
   border: 0;
   border-radius: 10px;
   font-size: 22px;
   text-align: left;
   cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  svg {
+    margin-left: auto;
+    transition: all 0.3s ease-in-out;
+
+    &.active {
+      transform: rotate(180deg);
+      transition: all 0.3s ease-in-out;
+    }
+  }
 }
 
 .accordion__collapse {
@@ -33,7 +46,7 @@
 }
 
 .accordion__body {
-  padding: 30px 60px 30px 30px;
+  padding: 20px;
   background-color: #f1f1f1;
   border-radius: 0 0 10px 10px;
   font-size: 20px;

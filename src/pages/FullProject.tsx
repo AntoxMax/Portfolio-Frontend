@@ -64,7 +64,7 @@ export const FullProject = () => {
           )}
           {data.skills && (
             <div className={s.projectPage__skills}>
-              <Skills objectSkills={{ "Стэк:": data.skills }} />
+              <Skills skills={[{ title: "Стэк:", skills: data.skills }]} />
             </div>
           )}
           <div className={s.projectPage__text}>

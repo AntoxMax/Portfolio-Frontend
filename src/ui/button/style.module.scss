@@ -23,6 +23,11 @@ $dark: #000;
 
   cursor: pointer;
 
+  &[disabled] {
+    opacity: 50%;
+    cursor: auto;
+  }
+
   .white {
     border: 1px solid $white;
     color: $white;

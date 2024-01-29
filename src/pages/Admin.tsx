@@ -7,7 +7,7 @@ import s from "./admin.module.scss";
 import { Button } from "../ui/button/Button";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { fetchAdminLogin } from "../redux/Admin/adminSlice";
-import { Link, redirect, useNavigate } from "react-router-dom";
+import { Link, Navigate, redirect, useNavigate } from "react-router-dom";
 
 interface InputTypes {
   login: string;
@@ -17,11 +17,6 @@ interface InputTypes {
 export const Admin = () => {
   const isAuth = useAppSelector((state) => state.admin.auth);
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (isAuth) navigate("/admin-bar");
-  }, [isAuth]);
 
   const {
     register,
@@ -29,8 +24,23 @@ export const Admin = () => {
     formState: { errors },
   } = useForm<InputTypes>();
 
-  const onSubmit: SubmitHandler<InputTypes> = (data) =>
-    dispatch(fetchAdminLogin(data));
+  if (isAuth) {
+    return <Navigate to="/admin-bar" />;
+  }
+
+  const onSubmit: SubmitHandler<InputTypes> = async (data) => {
+    const user = await dispatch(fetchAdminLogin(data));
+
+    if (!user.payload) {
+      return alert("Error");
+    }
+
+    if ("token" in user.payload) {
+      window.localStorage.setItem("token", user.payload.token);
+    } else {
+      console.log("err");
+    }
+  };
 
   return (
     <MainLayout>

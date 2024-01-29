@@ -1,3 +1,5 @@
+//@ts-nocheck
+
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "../store";
@@ -5,9 +7,16 @@ import type { RootState } from "../store";
 import axios from "../../axios";
 
 export const fetchMainpageIngo = createAsyncThunk(
-  "posts/fetchMainpageIngo",
+  "mainPage/fetchMainpageIngo",
   async () => {
     const { data } = await axios.get("/mainpage");
+    return data;
+  }
+);
+export const updateMainpageIngo = createAsyncThunk(
+  "mainPage/updateMainpageIngo",
+  async (params) => {
+    const { data } = await axios.patch("/mainpage", params);
     return data;
   }
 );
@@ -18,20 +27,28 @@ export enum Statuses {
   Error = "ERROR",
 }
 
-export type skillsType = { name: string; value: string[] };
+export type skillsType = { name: string; value: string[] } | null;
+
+type dataObject = {
+  firstBlock: Object;
+  skills: skillsType;
+  textAboutMe: Object;
+  contacts: Object[];
+};
 
 interface MainPageState {
-  skills: skillsType[];
-  textAboutMe: String;
+  mainPageIngo: dataObject;
   status: Statuses;
 }
 
-const initialState = {
-  mainPageIngo: <MainPageState>{
-    skills: [],
-    textAboutMe: "",
-    status: Statuses.Loading,
+const initialState: MainPageState = {
+  mainPageIngo: {
+    firstBlock: {},
+    skills: null,
+    textAboutMe: {},
+    contacts: [{}],
   },
+  status: Statuses.Loading,
 };
 
 const mainPageSlice = createSlice({
@@ -40,20 +57,24 @@ const mainPageSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchMainpageIngo.pending, (state) => {
-      state.mainPageIngo.status = Statuses.Loading;
+      state.status = Statuses.Loading;
     });
     builder.addCase(
       fetchMainpageIngo.fulfilled,
-      (state, action: PayloadAction<[{ skills: []; textAboutMe: String }]>) => {
-        state.mainPageIngo.skills = action.payload[0].skills;
-        state.mainPageIngo.textAboutMe = action.payload[0].textAboutMe;
-        state.mainPageIngo.status = Statuses.Success;
+      (state, action: PayloadAction<dataObject[]>) => {
+        state.mainPageIngo = action.payload[0];
+        state.status = Statuses.Success;
       }
     );
     builder.addCase(fetchMainpageIngo.rejected, (state) => {
-      state.mainPageIngo.skills = [];
-      state.mainPageIngo.textAboutMe = "";
-      state.mainPageIngo.status = Statuses.Error;
+      state.status = Statuses.Error;
+    });
+    builder.addCase(updateMainpageIngo.fulfilled, (state, action: any) => {
+      // state.mainPageIngo = action.payload[0];
+      state.status = Statuses.Success;
+    });
+    builder.addCase(updateMainpageIngo.rejected, (state) => {
+      state.status = Statuses.Error;
     });
   },
 });

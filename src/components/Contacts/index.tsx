@@ -8,19 +8,18 @@ import { GitHubIcon } from "../../ui/icons/GitHubIcon";
 
 import s from "./style.module.scss";
 
-export const Contacts = () => {
+export const Contacts = ({ contacts }: any) => {
   return (
     <VerticalLayout>
       <BlockTitle>Контакты</BlockTitle>
       <div className={s.contacts}>
         <div className={s.contacts__socials}>
-          <div className={s.socials__item}>
-            {<MailIcon />} maksimkin.antoxa@gmail.com
-          </div>
-          <div className={s.socials__item}>
-            {<TelegramIcon />} +81 80 3731 1245
-          </div>
-          <div className={s.socials__item}>{<GitHubIcon />} my git</div>
+          {contacts.map((contact: any) => (
+            <a href={contact.urlContact} className={s.socials__item}>
+              <img src={contact.iconUrl} alt={contact.textContact} />
+              {contact.textContact}
+            </a>
+          ))}
         </div>
         <div className={s.contacts__button}>
           <p>Мое полное портфолио</p>

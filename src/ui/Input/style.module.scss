@@ -1,0 +1,28 @@
+.customInput {
+  display: flex;
+  align-items: center;
+
+  input {
+    padding: 8px 12px;
+    border-radius: 10px;
+    border: none;
+    width: 100%;
+
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+    border: 1px solid #1e1e1e;
+  }
+
+  &__icon {
+    margin-left: -35px;
+    width: 28px;
+    height: 28px;
+    svg {
+      width: 28px;
+      height: 28px;
+      fill: black;
+    }
+  }
+}

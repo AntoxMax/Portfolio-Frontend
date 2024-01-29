@@ -3,9 +3,16 @@ import MainLayout from "../layouts/MainLayout";
 import VerticalLayout from "../layouts/VerticalLayout";
 
 import s from "./adminBar.module.scss";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Navigate, Outlet } from "react-router-dom";
+import { useAppSelector } from "../redux/hooks";
 
 export const AdminBar = () => {
+  const isAuth = useAppSelector((state) => state.admin.auth);
+
+  if (!isAuth) {
+    return <Navigate to="/admin" />;
+  }
+
   return (
     <MainLayout>
       <VerticalLayout>

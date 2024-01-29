@@ -11,20 +11,11 @@ import { BlockTitle } from "../../ui/blockTitle/BlockTitle";
 import s from "./style.module.scss";
 import Skills from "../Skills/Skills";
 
-export const SkillsBLock = () => {
-  const dispatch = useAppDispatch();
-  const skills = useAppSelector((state) => state.mainPage.mainPageIngo.skills);
-
-  useEffect(() => {
-    dispatch(fetchMainpageIngo());
-  }, []);
-
+export const SkillsBLock = ({ data }) => {
   return (
     <VerticalLayout>
       <BlockTitle>Навыки</BlockTitle>
-      <div className={s.skills}>
-        {skills.length !== 0 && <Skills objectSkills={skills[0]} />}
-      </div>
+      <div className={s.skills}>{data && <Skills skills={data} />}</div>
     </VerticalLayout>
   );
 };

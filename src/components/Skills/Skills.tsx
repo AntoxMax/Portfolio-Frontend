@@ -2,19 +2,20 @@
 import s from "./style.module.scss";
 
 interface skillsProps {
-  objectSkills: { title: string; skills: String[] };
+  skills: { title: string; skills: String[] };
 }
 
-const Skills: React.FC<skillsProps> = ({ objectSkills }) => {
-  const objKeys = Object.keys(objectSkills);
-
+const Skills: React.FC<skillsProps> = ({ skills }) => {
+  console.log(skills);
   return (
     <div className={s.skills}>
-      {objKeys.map((key, index) => (
+      {skills.map((item, index) => (
         <>
-          <div className={s.skills__text}>{key}</div>
+          <div key={index} className={s.skills__text}>
+            {item.title}
+          </div>
           <div className={s.skills__items}>
-            {objectSkills[key].map((skill, index) => (
+            {item.skills.map((skill, index) => (
               <div key={index} className={s.skills__item}>
                 {skill}
               </div>

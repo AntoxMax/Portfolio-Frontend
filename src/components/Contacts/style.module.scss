@@ -12,8 +12,9 @@
     .socials__item {
       display: flex;
       align-items: center;
+      color: inherit;
 
-      svg {
+      img {
         margin-right: 15px;
       }
     }
