@@ -1,33 +1,23 @@
-import React, { useEffect } from "react";
-import "./App.css";
-import { Main } from "./pages/Main";
-import MainLayout from "./layouts/MainLayout";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { FullProject } from "./pages/FullProject";
-import { NotFound } from "./pages/NotFound";
-import { Admin } from "./pages/Admin";
-import { AdminBar } from "./pages/AdminBar";
-import { Projects } from "./components/Projects";
-import { AdminMaininfo } from "./components/AdminMainInfo";
-import { useAppDispatch, useAppSelector } from "./redux/hooks";
-import { fetchAuthAdmin, isAuthSelector } from "./redux/Admin/adminSlice";
-import { AdminProjects } from "./components/AdminProjects";
-import { AddProject } from "./pages/AddProject";
-import { EditProject } from "./pages/EditProject";
-import { AdminUser } from "./components/AdminUser";
+import { Route, Routes } from "react-router-dom";
+
+import { AddProject } from "./modules/CreateProjectModule/AddProject";
+import { EditProject } from "./modules/EditProjectModule/EditProject";
+
+import { Main } from "./modules/MainPageModule/Main";
+import { FullProject } from "./modules/FullProjectModule/FullProject";
+import { NotFound } from "./modules/NotFoundModule/NotFound";
+import { AdminLogin } from "./modules/AdminLoginModule/AdminLogin";
+import { AdminBar } from "./modules/AdminBarModule/AdminBar";
+import { AdminMaininfo } from "./modules/AdminMainInfoModule/AdminMainInfo";
+import { AdminProjects } from "./modules/AdminProjectsModule/AdminProjects";
+import { AdminUser } from "./modules/AdminUserModule";
 
 function App() {
-  const dispatch = useAppDispatch();
-  const isAuth = useAppSelector(isAuthSelector);
-
-  useEffect(() => {
-    dispatch(fetchAuthAdmin());
-  }, []);
   return (
     <>
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/admin" element={<Admin />} />
+        <Route path="/admin" element={<AdminLogin />} />
         <Route path="/admin-bar/" element={<AdminBar />}>
           <Route index element={<AdminMaininfo />} />
           <Route path="projects" element={<AdminProjects />} />

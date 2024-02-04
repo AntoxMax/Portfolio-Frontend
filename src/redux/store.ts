@@ -1,12 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { projectReducer } from "./Project/projectSlice";
-import { mainPageReducer } from "./MainPage/mainpageSlice";
-import { adminReducer } from "./Admin/adminSlice";
+import { adminReducer } from "./Admin/slice";
+import { oneProjectReducer } from "./oneProject/slice";
+import { mainPageReducer } from "./MainPage/slice";
+import { projectReducer } from "./Project/slice";
 
 export const store = configureStore({
   reducer: {
-    projects: projectReducer,
     mainPage: mainPageReducer,
+    projects: projectReducer,
+    oneProject: oneProjectReducer,
     admin: adminReducer,
   },
 });
