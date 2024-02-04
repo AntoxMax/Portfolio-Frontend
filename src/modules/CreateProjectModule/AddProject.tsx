@@ -11,7 +11,7 @@ import { SkillsBlock } from "./components/SkillsBlock/SkillsBlock";
 import { LinksBlock } from "./components/LinksBlock/LinksBlock";
 import { Buttons } from "./components/Buttons/Buttons";
 
-import "./addProject.scss";
+import s from "./addProject.module.scss";
 
 // TODO: Добавить валидаторы на поля
 export const AddProject = () => {
@@ -47,7 +47,7 @@ export const AddProject = () => {
 
   return (
     <div>
-      <div className="main-info__block">
+      <div className={s.main_info__block}>
         <DownloadImage
           imageUrl={imageUrl}
           handleChangeFile={handleChangeFile}

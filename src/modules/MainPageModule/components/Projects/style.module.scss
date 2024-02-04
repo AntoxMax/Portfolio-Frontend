@@ -24,15 +24,19 @@
       font-weight: 500;
 
       cursor: pointer;
+
+      &.active {
+        text-decoration: underline;
+      }
     }
   }
 
   &__items {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-column-gap: 45px;
     grid-row-gap: 45px;
   }
+
   &__item {
     display: grid;
     grid-row-gap: 15px;
@@ -56,4 +60,9 @@
       line-height: normal;
     }
   }
+}
+
+.notFoundProjects {
+  display: flex;
+  justify-content: center;
 }

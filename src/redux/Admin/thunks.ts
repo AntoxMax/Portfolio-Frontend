@@ -17,3 +17,10 @@ export const fetchAuthAdmin = createAsyncThunk(
     return data;
   }
 );
+
+export const patchAdmin = createAsyncThunk(
+  "admin/patchAdmin",
+  async ({ id, fields }: any) => {
+    axios.patch(`/admin/${id}`, fields);
+  }
+);

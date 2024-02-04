@@ -6,7 +6,7 @@ import MainLayout from "../../layouts/MainLayout";
 
 import s from "./admin.module.scss";
 import { Form } from "./components/Form/Form";
-import { GoOnMain } from "../../components/GoOnMain/GoOnMain";
+import { GoOnBack } from "../../components/GoOnBack/GoOnBack";
 import { fetchAuthAdmin } from "../../redux/Admin/thunks";
 
 export const AdminLogin: React.FC = () => {
@@ -25,7 +25,7 @@ export const AdminLogin: React.FC = () => {
     <MainLayout>
       <div className={s.form}>
         <Form />
-        <GoOnMain />
+        <GoOnBack />
       </div>
     </MainLayout>
   );

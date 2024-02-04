@@ -10,25 +10,33 @@ type Props = {
 };
 
 export const Menu: React.FC<Props> = ({ category, setCategory }) => {
-  //TODO: сделать добавление класса active к эелементам меню по индексам, useState инициализировать начальным индексом
   const [active, setActive] = useState<number>(1);
+
+  const onClickMenuItem = (
+    projectCategories: projectCategories,
+    index: number
+  ) => {
+    setCategory(projectCategories);
+    setActive(index);
+  };
+
   return (
     <div className={s.projects__menu}>
       <div
-        className={s.menu__item}
-        onClick={() => setCategory(projectCategories.Pet)}
+        className={s.menu__item + " " + (active === 1 ? s.active : "")}
+        onClick={() => onClickMenuItem(projectCategories.Pet, 1)}
       >
         ПЭТ-проекты
       </div>
       <div
-        className={s.menu__item}
-        onClick={() => setCategory(projectCategories.Frilans)}
+        className={s.menu__item + " " + (active === 2 ? s.active : "")}
+        onClick={() => onClickMenuItem(projectCategories.Frilans, 2)}
       >
         Фриланс
       </div>
       <div
-        className={s.menu__item}
-        onClick={() => setCategory(projectCategories.Commercial)}
+        className={s.menu__item + " " + (active === 3 ? s.active : "")}
+        onClick={() => onClickMenuItem(projectCategories.Commercial, 3)}
       >
         Коммерческий опыт
       </div>

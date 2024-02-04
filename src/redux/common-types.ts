@@ -5,17 +5,17 @@ export enum Statuses {
 }
 
 export enum projectCategories {
-  NoCategory = "NoCATEGORY",
-  Pet = "PET",
-  Frilans = "FRILANS",
-  Commercial = "COMMERCIAL",
+  NoCategory = "Без категории",
+  Pet = "ПЭТ-проект",
+  Frilans = "Фриланс",
+  Commercial = "Коммерческий опыт",
 }
 
 export interface Project {
   _id: string;
   title: string;
   text: string;
-  category: string;
+  category: projectCategories;
   link: string;
   gitLink: string;
   imageUrl: string;

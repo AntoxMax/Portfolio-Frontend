@@ -1,0 +1,9 @@
+.user {
+  p {
+    margin: 0;
+    margin-bottom: 5px;
+  }
+  & > *:not(:last-child) {
+    margin-bottom: 15px;
+  }
+}

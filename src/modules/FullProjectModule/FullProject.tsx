@@ -8,7 +8,7 @@ import VerticalLayout from "../../layouts/VerticalLayout";
 
 import { MainBlock } from "./components/MainBlock/MainBlock";
 import { Links } from "./components/Links/Links";
-import { GoOnMain } from "../../components/GoOnMain/GoOnMain";
+import { GoOnBack } from "../../components/GoOnBack/GoOnBack";
 import { SkillsBlock } from "./components/Skills/Skills";
 
 import s from "./fullProject.module.scss";
@@ -26,15 +26,19 @@ export const FullProject = () => {
     <MainLayout>
       <VerticalLayout>
         <div className={s.projectPage}>
-          <GoOnMain />
+          <GoOnBack />
           <MainBlock
             imageUrl={project.imageUrl}
             title={project.title}
             text={project.text}
+            category={project.category}
+            linkComponent={
+              <Links link={project.link} gitLink={project.gitLink} />
+            }
           />
-          <Links link={project.link} gitLink={project.gitLink} />
+
           <SkillsBlock skills={project.skills} />
-          <GoOnMain />
+          <GoOnBack />
         </div>
       </VerticalLayout>
     </MainLayout>

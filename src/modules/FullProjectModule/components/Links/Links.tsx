@@ -10,18 +10,16 @@ type LinksProps = {
 
 export const Links: React.FC<LinksProps> = ({ link, gitLink }) => {
   return (
-    <div>
-      {link || gitLink ? (
-        <div className={s.projectPage__links}>
-          <a href={link} className={s.link}>
-            {link}
-          </a>
-          <a href={gitLink}>
-            <GitHubIcon />
-          </a>
-        </div>
-      ) : (
-        ""
+    <div className={s.links}>
+      {link && (
+        <a href={link} className={s.links__link}>
+          {link}
+        </a>
+      )}
+      {gitLink && (
+        <a href={gitLink} className={s.links__gitLink}>
+          <GitHubIcon />
+        </a>
       )}
     </div>
   );

@@ -3,6 +3,8 @@ import { SelectCategory } from "../../../../components/SelectCategory/SelectCate
 import { Input } from "../../../../ui/Input";
 import { projectCategories } from "../../../../redux/common-types";
 
+import s from "../../addProject.module.scss";
+
 type ContentProps = {
   setCategory: React.Dispatch<React.SetStateAction<projectCategories>>;
   title: string;
@@ -19,7 +21,7 @@ export const ContentBlock: React.FC<ContentProps> = ({
   setText,
 }) => {
   return (
-    <div className="text">
+    <div className={s.text}>
       <SelectCategory setCategory={setCategory} />
       <Input
         placeholder="Введите заголовок"
@@ -27,7 +29,7 @@ export const ContentBlock: React.FC<ContentProps> = ({
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
           setTitle(e.target.value)
         }
-        className="text__title"
+        className={s.text__title}
       ></Input>
 
       <textarea
@@ -37,7 +39,7 @@ export const ContentBlock: React.FC<ContentProps> = ({
         onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
           setText(e.target.value)
         }
-        className="text__text"
+        className={s.text__text}
       ></textarea>
     </div>
   );

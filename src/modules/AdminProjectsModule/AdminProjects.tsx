@@ -2,14 +2,13 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useAppDispatch } from "../../redux/hooks";
 import { fetchProjectsCategory } from "../../redux/Project/thunks";
-
-import { ProjectsList } from "./components/ProjectsList/ProjectsList";
-import { Button } from "../../ui/button/Button";
-
 import { projectCategories } from "../../redux/common-types";
 
-import "./style.scss";
+import { ProjectsList } from "./components/ProjectsList/ProjectsList";
 import { SelectCategory } from "../../components/SelectCategory/SelectCategory";
+import { Button } from "../../ui/button/Button";
+
+import s from "./style.module.scss";
 
 export const AdminProjects = () => {
   const dispatch = useAppDispatch();
@@ -26,7 +25,7 @@ export const AdminProjects = () => {
 
   return (
     <div>
-      <div className="projects__header">
+      <div className={s.projects__header}>
         <Link to="/admin-bar/add-project">
           <Button background={true}>Создать проект</Button>
         </Link>

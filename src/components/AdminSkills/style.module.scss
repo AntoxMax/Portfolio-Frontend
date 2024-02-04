@@ -1,0 +1,21 @@
+.itemSkills {
+  display: flex;
+
+  .item_skill {
+    background-color: #1e1e1e;
+    padding: 5px 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    color: white;
+
+    svg {
+      margin-left: 5px;
+    }
+  }
+
+  input {
+    margin: 0;
+  }
+}

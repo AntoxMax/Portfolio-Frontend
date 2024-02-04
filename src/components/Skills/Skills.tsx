@@ -9,7 +9,7 @@ const Skills: React.FC<skillsProps> = ({ skills }) => {
   return (
     <div className={s.skills}>
       {skills.map((item, index) => (
-        <>
+        <div key={index}>
           <div key={index} className={s.skills__text}>
             {item.title}
           </div>
@@ -20,7 +20,7 @@ const Skills: React.FC<skillsProps> = ({ skills }) => {
               </div>
             ))}
           </div>
-        </>
+        </div>
       ))}
     </div>
   );

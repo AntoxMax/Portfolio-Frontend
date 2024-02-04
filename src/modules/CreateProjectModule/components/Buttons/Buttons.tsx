@@ -1,6 +1,8 @@
 import React from "react";
 import { Button } from "../../../../ui/button/Button";
 
+import s from "../../addProject.module.scss";
+
 type ButtonsProps = {
   onClickCreateProject: () => Promise<void>;
   onClickCancel: () => void;
@@ -11,7 +13,7 @@ export const Buttons: React.FC<ButtonsProps> = ({
   onClickCancel,
 }) => {
   return (
-    <div className="buttons">
+    <div className={s.buttons}>
       <Button onClick={() => onClickCreateProject()} background={true}>
         Создать
       </Button>

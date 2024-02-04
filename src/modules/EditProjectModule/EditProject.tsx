@@ -11,6 +11,8 @@ import { SkillsBlock } from "./components/SkillsBlock/SkillsBlock";
 import { LinksBlock } from "./components/LinksBlock/LinksBlock";
 import { Buttons } from "./components/Buttons/Buttons";
 
+import s from "./addProject.module.scss";
+
 export const EditProject = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -64,7 +66,7 @@ export const EditProject = () => {
     <div>
       {status === Statuses.Success ? (
         <div>
-          <div className="main-info__block">
+          <div className={s.main_info__block}>
             <DownloadImage
               imageUrl={imageUrl}
               handleChangeFile={handleChangeFile}

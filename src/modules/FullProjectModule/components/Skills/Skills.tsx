@@ -9,7 +9,7 @@ type SkillsProps = {
 
 export const SkillsBlock: React.FC<SkillsProps> = ({ skills }) => {
   return (
-    <div className={s.projectPage__skills}>
+    <div className={s.skills}>
       <Skills skills={[{ title: "Стэк:", skills: skills }]} />
     </div>
   );

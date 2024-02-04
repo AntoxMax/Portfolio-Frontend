@@ -7,6 +7,7 @@ import { EditIcon } from "../../../../ui/icons/EditIcon";
 import { DeleteIcon } from "../../../../ui/icons/DeleteIcon";
 import { deleteProject } from "../../../../redux/oneProject/thunks";
 
+import s from "../../style.module.scss";
 type ProjectListProps = {
   deleted: boolean;
   setDeleted: React.Dispatch<React.SetStateAction<boolean>>;
@@ -27,10 +28,10 @@ export const ProjectsList: React.FC<ProjectListProps> = ({
   return (
     <>
       {items.map((project: Project) => (
-        <div key={project._id} className="item">
+        <div key={project._id} className={s.item}>
           <img src={project.imageUrl} alt={project.title} />
-          <div className="title">{project.title}</div>
-          <div className="item__buttons">
+          <div className={s.title}>{project.title}</div>
+          <div className={s.item__buttons}>
             <Link to={`/admin-bar/edit-project/${project._id}`}>
               <EditIcon />
             </Link>

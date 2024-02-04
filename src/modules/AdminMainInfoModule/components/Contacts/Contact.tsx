@@ -4,6 +4,8 @@ import { Button } from "../../../../ui/button/Button";
 import { DeleteIcon } from "../../../../ui/icons/DeleteIcon";
 import { Input } from "../../../../ui/Input";
 
+import s from "../../style.module.scss";
+
 export const ContactsElement = ({
   item,
   index,
@@ -23,10 +25,10 @@ export const ContactsElement = ({
   }, []);
 
   return (
-    <div className="contacts">
-      <div className="contacts__header">
+    <div className={s.contacts}>
+      <div className={s.contacts__header}>
         <h3>{item.textContact}</h3>
-        <div className="manageButtons">
+        <div className={s.manageButtons}>
           <EditIcon
             opacity={!item.textContact.length ? "50%" : ""}
             onClick={() => onClickEditIcon()}
@@ -35,7 +37,7 @@ export const ContactsElement = ({
         </div>
       </div>
 
-      <div className="iconUrl">
+      <div className={s.iconUrl}>
         {item.iconUrl.length !== 0 && <img src={item.iconUrl} alt="" />}
         <Button
           background={true}

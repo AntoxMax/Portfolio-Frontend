@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { fetchAdminLogin, fetchAuthAdmin } from "./thunks";
+import { fetchAdminLogin, fetchAuthAdmin, patchAdmin } from "./thunks";
 import { Statuses } from "../common-types";
 
 interface adminState {
@@ -60,6 +60,12 @@ const adminSlice = createSlice({
     builder.addCase(fetchAuthAdmin.rejected, (state) => {
       state.data = null;
       state.auth = false;
+      state.status = Statuses.Error;
+    });
+    builder.addCase(patchAdmin.fulfilled, (state) => {
+      state.status = Statuses.Success;
+    });
+    builder.addCase(patchAdmin.rejected, (state) => {
       state.status = Statuses.Error;
     });
   },

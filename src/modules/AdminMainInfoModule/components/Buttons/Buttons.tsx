@@ -1,23 +1,23 @@
 import React from "react";
 import { Button } from "../../../../ui/button/Button";
 
-import s from "../../addProject.module.scss";
+import s from "../../style.module.scss";
 
 type ButtonsProps = {
-  onClickEditProject: () => Promise<void>;
-  onClickCancel: () => void;
+  onClickSaveData: () => Promise<void>;
+  onClickCancelSave: () => void;
 };
 
 export const Buttons: React.FC<ButtonsProps> = ({
-  onClickEditProject,
-  onClickCancel,
+  onClickSaveData,
+  onClickCancelSave,
 }) => {
   return (
     <div className={s.buttons}>
-      <Button onClick={() => onClickEditProject()} background={true}>
+      <Button background={true} onClick={() => onClickSaveData()}>
         Сохранить
       </Button>
-      <Button onClick={() => onClickCancel()} background={true}>
+      <Button background={true} onClick={() => onClickCancelSave()}>
         Отменить
       </Button>
     </div>

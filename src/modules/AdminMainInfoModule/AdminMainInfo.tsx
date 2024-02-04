@@ -1,16 +1,14 @@
 import { useEffect } from "react";
-import { AccordionItem } from "../../ui/Accordion/AccordionItem";
-
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-
-import "./style.scss";
 import { fetchMainpageIngo } from "../../redux/MainPage/thunks";
 import { Statuses } from "../../redux/common-types";
+
 import { FirstBlock } from "./components/FirstBlock/FirstBlock";
 import { Skills } from "./components/Skills/Skills";
 import { AboutMe } from "./components/AboutMe/AboutMe";
 import { Contacts } from "./components/Contacts/Contacts";
 import VerticalLayout from "../../layouts/VerticalLayout";
+import { AccordionItem } from "../../ui/Accordion/AccordionItem";
 
 export const AdminMaininfo = () => {
   const dispatch = useAppDispatch();

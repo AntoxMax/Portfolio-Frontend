@@ -3,6 +3,8 @@ import { Input } from "../../ui/Input";
 import { AddItemIcon } from "../../ui/icons/AddItemIcon";
 import { DeleteIcon } from "../../ui/icons/DeleteIcon";
 
+import s from "./style.module.scss";
+
 type SkillsProps = {
   skills: string[];
   setSkills: React.Dispatch<React.SetStateAction<string[]>>;
@@ -24,10 +26,10 @@ export const Skills: React.FC<SkillsProps> = ({ skills, setSkills }) => {
     setSkills(updatedSkills);
   };
   return (
-    <div className="itemSkills">
+    <div className={s.itemSkills}>
       {skills.length !== 0 &&
         skills.map((item: string, index: number) => (
-          <div className="item-skill">
+          <div key={index} className={s.item_skill}>
             {item}
             <DeleteIcon onClick={() => deleteSkill(index)} />
           </div>

@@ -2,6 +2,8 @@ import React from "react";
 import { AccordionItem } from "../../../../ui/Accordion/AccordionItem";
 import { Links } from "../../../../components/AdminLinks/AdminLinks";
 
+import s from "../../addProject.module.scss";
+
 type LinksProps = {
   link: string;
   setLink: React.Dispatch<React.SetStateAction<string>>;
@@ -16,7 +18,7 @@ export const LinksBlock: React.FC<LinksProps> = ({
   setGitLink,
 }) => {
   return (
-    <div className="links__block">
+    <div className={s.links__block}>
       <AccordionItem
         title={"Links"}
         content={

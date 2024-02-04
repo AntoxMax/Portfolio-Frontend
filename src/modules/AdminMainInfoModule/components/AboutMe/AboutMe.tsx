@@ -7,6 +7,9 @@ import { useImageUploader } from "../../../../hooks/useUploadImg";
 import { Button } from "../../../../ui/button/Button";
 import { ButtonUploadImg } from "../../../../components/ButtonUploadImg/ButtonUploadImg";
 
+import s from "../../style.module.scss";
+import { Buttons } from "../Buttons/Buttons";
+
 type AboutMeProps = {
   data: TextAboutMeTypes;
 };
@@ -27,7 +30,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({ data }) => {
     window.alert("Данные обновлены");
   };
 
-  const onclickCancelSave = () => {
+  const onClickCancelSave = () => {
     setImageUrl(data.imageUrl);
     setTextareaValue(data.text);
   };
@@ -40,18 +43,14 @@ export const AboutMe: React.FC<AboutMeProps> = ({ data }) => {
         value={textareaValue}
         onChange={(e) => setTextareaValue(e.target.value)}
       ></textarea>
-      <div className="imageUrl">
+      <div className={s.imageUrl}>
         <ButtonUploadImg handleChangeFile={handleChangeFile} />
         <img src={imageUrl} alt="" />
       </div>
-      <div className="buttons">
-        <Button background={true} onClick={() => onClickSaveData()}>
-          Сохранить
-        </Button>
-        <Button background={true} onClick={() => onclickCancelSave()}>
-          Отменить
-        </Button>
-      </div>
+      <Buttons
+        onClickSaveData={onClickSaveData}
+        onClickCancelSave={onClickCancelSave}
+      />
     </div>
   );
 };

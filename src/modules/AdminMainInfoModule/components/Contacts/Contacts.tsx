@@ -1,10 +1,12 @@
 import React, { useState, useRef } from "react";
 import { ContactTypes } from "../../../../redux/MainPage/types";
 import { useAppDispatch } from "../../../../redux/hooks";
-import axios from "../../../../services/axios";
 import { updateMainpageIngo } from "../../../../redux/MainPage/thunks";
+import axios from "../../../../services/axios";
+
 import { ContactsElement } from "./Contact";
 import { Button } from "../../../../ui/button/Button";
+import { Buttons } from "../Buttons/Buttons";
 
 type ContactsProps = {
   data: ContactTypes[];
@@ -66,6 +68,7 @@ const Contacts: React.FC<ContactsProps> = ({ data }) => {
     <div>
       {items.map((item, index) => (
         <ContactsElement
+          key={index}
           item={item}
           index={index}
           removeProperty={removeProperty}
@@ -75,14 +78,10 @@ const Contacts: React.FC<ContactsProps> = ({ data }) => {
         />
       ))}
       <Button onClick={addElement}>Добавить контакт</Button>
-      <div className="buttons">
-        <Button background={true} onClick={() => onClickSaveData()}>
-          Сохранить
-        </Button>
-        <Button background={true} onClick={() => onClickCancelSave()}>
-          Отменить
-        </Button>
-      </div>
+      <Buttons
+        onClickSaveData={onClickSaveData}
+        onClickCancelSave={onClickCancelSave}
+      />
     </div>
   );
 };
