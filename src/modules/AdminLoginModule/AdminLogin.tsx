@@ -25,7 +25,7 @@ export const AdminLogin: React.FC = () => {
 
   return (
     <>
-      {status === Statuses.Success ? (
+      {!auth ? (
         <MainLayout>
           <div className={s.form}>
             <Form />
