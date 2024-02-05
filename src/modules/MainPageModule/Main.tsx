@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { fetchMainpageIngo } from "../../redux/MainPage/thunks";
 
+import ScrollToAnchor from "./scrollArchor";
+
 import { MainFirstBlock } from "./components/MainFirstBlock";
 import { SkillsBLock } from "./components/SkillsBlock";
 import { AboutMe } from "./components/AboutMe";
@@ -22,6 +24,7 @@ export const Main: React.FC = () => {
   return (
     <>
       <MainLayout>
+        <ScrollToAnchor />
         <MainFirstBlock
           firstBlock={mainPageIngo.firstBlock}
           contacts={mainPageIngo.contacts}

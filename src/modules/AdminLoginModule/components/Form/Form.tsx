@@ -4,6 +4,7 @@ import { useAppDispatch } from "../../../../redux/hooks";
 import { fetchAdminLogin } from "../../../../redux/Admin/thunks";
 
 import { Button } from "../../../../ui/button/Button";
+import { ErrorMessage } from "../Error/Error";
 
 interface InputTypes {
   login: string;
@@ -21,7 +22,6 @@ export const Form: React.FC = () => {
 
   const onSubmit: SubmitHandler<InputTypes> = async (data) => {
     const user = await dispatch(fetchAdminLogin(data));
-    //TODO: Подумать о возможности нормального вывода ошибки
     if (!user.payload) {
       return alert("Error");
     }
@@ -45,8 +45,7 @@ export const Form: React.FC = () => {
         placeholder="password"
         {...register("password", { required: true })}
       />
-      {/* TODO: Сделать компонент для вывода ошибки */}
-      {Object.keys(errors).length !== 0 && <span>Error</span>}
+      {Object.keys(errors).length !== 0 && <ErrorMessage />}
 
       <Button type="submit" background={true}>
         Войти

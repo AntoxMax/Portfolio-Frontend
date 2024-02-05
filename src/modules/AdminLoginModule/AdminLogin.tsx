@@ -8,25 +8,33 @@ import s from "./admin.module.scss";
 import { Form } from "./components/Form/Form";
 import { GoOnBack } from "../../components/GoOnBack/GoOnBack";
 import { fetchAuthAdmin } from "../../redux/Admin/thunks";
+import { Statuses } from "../../redux/common-types";
+import { Loader } from "../../components/Loader/Loader";
 
 export const AdminLogin: React.FC = () => {
   const dispatch = useAppDispatch();
-  const isAuth = useAppSelector((state) => state.admin.auth);
+  const { auth, status } = useAppSelector((state) => state.admin);
 
   useEffect(() => {
     dispatch(fetchAuthAdmin());
   }, [dispatch]);
 
-  if (isAuth) {
+  if (auth) {
     return <Navigate to="/admin-bar" />;
   }
 
   return (
-    <MainLayout>
-      <div className={s.form}>
-        <Form />
-        <GoOnBack />
-      </div>
-    </MainLayout>
+    <>
+      {status === Statuses.Success ? (
+        <MainLayout>
+          <div className={s.form}>
+            <Form />
+            <GoOnBack />
+          </div>
+        </MainLayout>
+      ) : (
+        <Loader />
+      )}
+    </>
   );
 };

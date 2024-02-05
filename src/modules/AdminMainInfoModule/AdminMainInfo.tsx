@@ -9,6 +9,8 @@ import { AboutMe } from "./components/AboutMe/AboutMe";
 import { Contacts } from "./components/Contacts/Contacts";
 import VerticalLayout from "../../layouts/VerticalLayout";
 import { AccordionItem } from "../../ui/Accordion/AccordionItem";
+import { RevolvingDot } from "react-loader-spinner";
+import { Loader } from "../../components/Loader/Loader";
 
 export const AdminMaininfo = () => {
   const dispatch = useAppDispatch();
@@ -40,8 +42,7 @@ export const AdminMaininfo = () => {
           />
         </>
       ) : (
-        // TODO: Для все компонентов создать компонент лодера
-        <h1>Loading...</h1>
+        <Loader />
       )}
     </VerticalLayout>
   );

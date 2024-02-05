@@ -13,7 +13,6 @@ import { Buttons } from "./components/Buttons/Buttons";
 
 import s from "./addProject.module.scss";
 
-// TODO: Добавить валидаторы на поля
 export const AddProject = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();

@@ -12,6 +12,7 @@ import { LinksBlock } from "./components/LinksBlock/LinksBlock";
 import { Buttons } from "./components/Buttons/Buttons";
 
 import s from "./addProject.module.scss";
+import { Loader } from "../../components/Loader/Loader";
 
 export const EditProject = () => {
   const { id } = useParams();
@@ -92,7 +93,7 @@ export const EditProject = () => {
           />
         </div>
       ) : (
-        <p>Loading...</p>
+        <Loader />
       )}
     </div>
   );

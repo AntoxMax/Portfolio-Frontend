@@ -3,6 +3,7 @@ import React, { Dispatch, SetStateAction, useState } from "react";
 import { projectCategories } from "../../../../redux/common-types";
 
 import s from "./style.module.scss";
+import ScrollToAnchor from "../../scrollArchor";
 
 type Props = {
   category: string;

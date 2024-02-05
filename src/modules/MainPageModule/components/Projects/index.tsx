@@ -25,12 +25,14 @@ export const Projects = () => {
   }, [category, dispatch]);
 
   return (
-    <VerticalLayout>
-      <BlockTitle>Проекты</BlockTitle>
-      <div className={s.projects}>
-        <Menu category={category} setCategory={setCategory} />
-        <ProjectsItems projects={items} />
-      </div>
-    </VerticalLayout>
+    <div id="projects">
+      <VerticalLayout>
+        <BlockTitle>Проекты</BlockTitle>
+        <div className={s.projects}>
+          <Menu category={category} setCategory={setCategory} />
+          <ProjectsItems projects={items} />
+        </div>
+      </VerticalLayout>
+    </div>
   );
 };

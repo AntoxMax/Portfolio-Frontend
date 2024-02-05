@@ -12,9 +12,11 @@ type SkillsProps = {
 
 export const SkillsBLock: React.FC<SkillsProps> = ({ data }) => {
   return (
-    <VerticalLayout>
-      <BlockTitle>Навыки</BlockTitle>
-      <div className={s.skills}>{data && <Skills skills={data} />}</div>
-    </VerticalLayout>
+    <div id="skills">
+      <VerticalLayout>
+        <BlockTitle>Навыки</BlockTitle>
+        <div className={s.skills}>{data && <Skills skills={data} />}</div>
+      </VerticalLayout>
+    </div>
   );
 };

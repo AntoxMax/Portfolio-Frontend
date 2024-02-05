@@ -13,15 +13,17 @@ type ContactsProps = {
 
 export const Contacts: React.FC<ContactsProps> = ({ contacts }) => {
   return (
-    <VerticalLayout>
-      <BlockTitle>Контакты</BlockTitle>
-      <div className={s.contacts}>
-        <ContactsList contacts={contacts} />
-        <div className={s.contacts__button}>
-          <p>Мое полное портфолио</p>
-          <Button color="white">Портфолио</Button>
+    <div id="contacts">
+      <VerticalLayout>
+        <BlockTitle>Контакты</BlockTitle>
+        <div className={s.contacts}>
+          <ContactsList contacts={contacts} />
+          <div className={s.contacts__button}>
+            <p>Мое полное портфолио</p>
+            <Button color="white">Портфолио</Button>
+          </div>
         </div>
-      </div>
-    </VerticalLayout>
+      </VerticalLayout>
+    </div>
   );
 };

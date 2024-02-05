@@ -11,14 +11,16 @@ type AboutMeProps = {
 
 export const AboutMe: React.FC<AboutMeProps> = ({ data }) => {
   return (
-    <VerticalLayout>
-      <BlockTitle>Обо мне</BlockTitle>
-      <div className={s.about}>
-        <div className={s.about__photo}>
-          <img src={data.imageUrl} alt="me" />
+    <div id="aboutme">
+      <VerticalLayout>
+        <BlockTitle>Обо мне</BlockTitle>
+        <div className={s.about}>
+          <div className={s.about__photo}>
+            <img src={data.imageUrl} alt="me" />
+          </div>
+          <div className={s.about__text}>{data.text}</div>
         </div>
-        <div className={s.about__text}>{data.text}</div>
-      </div>
-    </VerticalLayout>
+      </VerticalLayout>
+    </div>
   );
 };
