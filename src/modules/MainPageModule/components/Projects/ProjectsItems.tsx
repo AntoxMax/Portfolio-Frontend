@@ -11,7 +11,6 @@ type Props = {
 };
 
 export const ProjectsItems: React.FC<Props> = ({ projects }) => {
-  console.log(projects);
   return (
     <>
       {projects.length !== 0 ? (

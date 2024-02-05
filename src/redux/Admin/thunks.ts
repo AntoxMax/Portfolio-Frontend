@@ -5,7 +5,6 @@ export const fetchAdminLogin = createAsyncThunk(
   "posts/fetchAdminLogin",
   async (authData: object) => {
     const { data } = await axios.post("/admin/login", authData);
-    console.log(data);
     return data;
   }
 );
